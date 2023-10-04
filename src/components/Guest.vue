@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col items-center relative">
         <Bike class="w-[250px]" />
-        <h1 class="text-4xl font-light font-shantell">
+        <h1 class="text-5xl font-light font-shantell">
             Welcome to our <span class="text-green-30 font-bold">Bike</span> rental application
         </h1>
         <h2 class="text-lg my-5 font-light">
@@ -11,6 +11,7 @@
             <VueDatePicker v-model="date_range" range :enable-time-picker="false" :min-date="new Date() + 1" />
             <button class="btn btn-green mt-5" :disabled="date_range.length == 0" @click="getPrices()">
                 Search
+                <Search class="w-7 stroke-white ml-2" />
             </button>
         </div>
         <div class="mt-5" v-if="loading">
@@ -50,6 +51,7 @@
     import { ref } from 'vue'
     import axios from 'axios'
     import Bike from '../assets/bike.vue'
+    import Search from '../assets/search.vue'
     import Loading from '../assets/loading.vue'
 
     const loading = ref(false)
