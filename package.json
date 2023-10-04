@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/shantell-sans": "^5.0.15",
     "@vuepic/vue-datepicker": "^7.0.0",
+    "axios": "^1.5.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {

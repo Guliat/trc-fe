@@ -1,3 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.input {
+    @apply
+    px-4
+    py-1.5
+    border
+    border-gray-300
+    rounded
+    text-gray-700
+    ;
+}
+
+.btn {
+    @apply
+    px-6
+    py-2
+    rounded-full
+    font-semibold
+    duration-300
+    flex
+    items-center
+    ;
+}
+
+.btn-green {
+    @apply
+    bg-green-500
+    text-white
+    hover:bg-green-600
+    ;
+}
+
+.btn-red {
+    @apply
+    bg-red-400
+    text-white
+    hover:bg-red-600
+    ;
+}
+
+.btn-text {
+    @apply
+    text-gray-500
+    font-normal
+    hover:text-gray-700
+    ;
+}
+
+.modal {
+    @apply
+    fixed
+    inset-0
+    bg-white/70
+    backdrop-blur
+    z-[100]
+    flex
+    items-center
+    justify-center
+    ;
+}
+
+.modal-box {
+    @apply
+    bg-white
+    shadow-2xl
+    border
+    rounded-lg
+    flex
+    flex-col
+    items-center
+    justify-center
+    p-10
+    ;
+}
