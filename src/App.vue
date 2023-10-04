@@ -46,9 +46,19 @@
         })
     }
 
-    function checkAuth()
-    {
-        // To fix if the admin refresh the page to stay on admin page
+    function checkAuth() {
+        axios.get('/api/check-auth').then(res => {
+            if (res.data == true)
+            {
+                is_admin.value = true
+                selectedComponent.value = 'Admin'
+            }
+            else {
+                is_admin.value = false
+                selectedComponent.value = 'Guest'
+            }
+        })
     }
 
+    checkAuth()
 </script>

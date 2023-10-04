@@ -7,8 +7,8 @@
         <h2 class="text-lg my-5 font-light">
             Please select start and end date and we will give you the best possible offer.
         </h2>
-        <div class="w-1/2 mx-auto flex flex-col items-center space-x-10 mt-10">
-            <VueDatePicker v-model="date_range" range :enable-time-picker="false" />
+        <div class="w-1/3 mx-auto flex flex-col items-center space-x-10 mt-10">
+            <VueDatePicker v-model="date_range" range :enable-time-picker="false" :min-date="new Date() + 1" />
             <button class="btn btn-green mt-5" :disabled="date_range.length == 0" @click="getPrices()">
                 Search
             </button>
@@ -53,8 +53,8 @@
     import Loading from '../assets/loading.vue'
 
     const loading = ref(false)
-    const date_range = ref([])
-    // const date_range = ref(["2024-01-08T13:05:00.000Z", "2024-01-11T13:05:00.000Z"])
+    // const date_range = ref([])
+    const date_range = ref(["2024-01-08T13:05:00.000Z", "2024-01-11T13:05:00.000Z"])
     const prices = ref(null)
 
     function getPrices()
