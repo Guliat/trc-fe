@@ -14,10 +14,13 @@
                 <label class="text-sm text-gray-700 mb-1" for="password">
                     Password
                 </label>
-                <input type="password" id="password" placeholder="password" v-model="email" class="px-4 py-2 border rounded-lg" />
+                <input type="password" id="password" placeholder="password" v-model="password" class="px-4 py-2 border rounded-lg" @keyup.enter="login()" />
             </div>
-            <button type="submit" class="btn btn-green mt-10">
+            <button class="btn btn-green mt-10" @click="login()">
                 Login
+            </button>
+            <button class="btn btn-text mt-3" @click="$emit('hide-login')">
+                cancel
             </button>
         </div>
     </div>
@@ -25,8 +28,24 @@
 
 <script setup>
     import { ref } from 'vue'
+    import axios from 'axios'
 
-    const email = ref('')
-    const password = ref('')
+    const email = ref('admin@trc.bg')
+    const password = ref('password')
+    const emit = defineEmits(['login-successfull'])
+
+    function login()
+    {
+        axios.get('/sanctum/csrf-cookie')
+        .then(() => {
+            axios.post('/api/login', {email: email.value, password: password.value})
+            .then((response) => {
+                if (response.status === 200) {
+                    emit('hide-login')
+                    emit('login-successfull')
+                }
+            })
+        })
+    }
 
 </script>

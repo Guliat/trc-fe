@@ -3,9 +3,7 @@
         <AddNewPricePeriod v-if="show_add_modal" @hideAddNewPricePeriod="hideAddNewPricePeriod()" />
         <UpdatePricePeriod :id="show_update_modal_id" v-if="show_update_modal" @hideUpdatePricePeriod="hideUpdatePricePeriod()" />
         <DeleteConfirmation :id="show_delete_confirmation_id" v-if="show_delete_confirmation" @hideDeleteConfirmation="hideDeleteConfirmation()" />
-        <button class="absolute top-10 right-14 btn btn-red">
-            Logout
-        </button>
+
         <div class="flex flex-col items-center justify-start pt-20">
             <button class="bg-green-500 px-10 py-3 rounded-full text-2xl text-white duration-300 hover:bg-green-600" @click="show_add_modal = true">
                 Add new price period
